@@ -13,16 +13,16 @@ apply<BootstrapPlugin>()
 apply<VersionPlugin>()
 
 allprojects {
-    group = "com.openosrs"
+    group = "com.scainburger"
     version = ProjectVersions.openosrsVersion
     apply<MavenPublishPlugin>()
 }
 
 subprojects {
-    group = "com.openosrs.externals"
+    group = "com.scainburger.plugins"
 
-    project.extra["PluginProvider"] = "OpenOSRS"
-    project.extra["ProjectUrl"] = "https://discord.gg/OpenOSRS"
+    project.extra["PluginProvider"] = "scainburger"
+    project.extra["ProjectUrl"] = "https://github.com/scainburger"
     project.extra["PluginLicense"] = "3-Clause BSD License"
 
     repositories {

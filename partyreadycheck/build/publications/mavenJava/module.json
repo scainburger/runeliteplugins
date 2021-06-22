@@ -1,7 +1,7 @@
 {
   "formatVersion": "1.1",
   "component": {
-    "group": "com.openosrs.externals",
+    "group": "com.scainburger.plugins",
     "module": "partyreadycheck",
     "version": "1.0.0",
     "attributes": {
@@ -28,10 +28,10 @@
           "name": "partyreadycheck-1.0.0.jar",
           "url": "partyreadycheck-1.0.0.jar",
           "size": 4079,
-          "sha512": "820a9da541bff76138d1ac890edbab2bac9f66e180956a1e3bb6a5f46fccad57c328cda74f6af59b8d41d9be1bc6b18305b4b3c63bc5f1f7b6e9198cadb3d343",
-          "sha256": "562a5499a9fd8768a57a2174487b659225a4d2fc3a288e9ebd6956c4cea652fb",
-          "sha1": "55ac17916242b67d8f55dcf80b2e22c1be0cd74a",
-          "md5": "4ab7f4aa050439ed9c287af2799a7aa2"
+          "sha512": "09af7367138eb6045ff77413c0a4430284ce265f9f4aca665eeba76c8fc9148b5bf6eb2fdcf832d8be7e49837a38877082fe70252723b4917ebd032875519654",
+          "sha256": "bcd4a71f7b14a3383a7582a839be226fdbfbb2f63edfbc931a08006ef2bec6df",
+          "sha1": "2daeb3d1ef05a79edc09a5bcec753352124a74ab",
+          "md5": "33a4a569bb18b4c6689505a107546106"
         }
       ]
     },
@@ -49,10 +49,10 @@
           "name": "partyreadycheck-1.0.0.jar",
           "url": "partyreadycheck-1.0.0.jar",
           "size": 4079,
-          "sha512": "820a9da541bff76138d1ac890edbab2bac9f66e180956a1e3bb6a5f46fccad57c328cda74f6af59b8d41d9be1bc6b18305b4b3c63bc5f1f7b6e9198cadb3d343",
-          "sha256": "562a5499a9fd8768a57a2174487b659225a4d2fc3a288e9ebd6956c4cea652fb",
-          "sha1": "55ac17916242b67d8f55dcf80b2e22c1be0cd74a",
-          "md5": "4ab7f4aa050439ed9c287af2799a7aa2"
+          "sha512": "09af7367138eb6045ff77413c0a4430284ce265f9f4aca665eeba76c8fc9148b5bf6eb2fdcf832d8be7e49837a38877082fe70252723b4917ebd032875519654",
+          "sha256": "bcd4a71f7b14a3383a7582a839be226fdbfbb2f63edfbc931a08006ef2bec6df",
+          "sha1": "2daeb3d1ef05a79edc09a5bcec753352124a74ab",
+          "md5": "33a4a569bb18b4c6689505a107546106"
         }
       ]
     }

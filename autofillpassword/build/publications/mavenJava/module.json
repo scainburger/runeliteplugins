@@ -1,7 +1,7 @@
 {
   "formatVersion": "1.1",
   "component": {
-    "group": "com.openosrs.externals",
+    "group": "com.scainburger.plugins",
     "module": "autofillpassword",
     "version": "1.0.0",
     "attributes": {
@@ -27,11 +27,11 @@
         {
           "name": "autofillpassword-1.0.0.jar",
           "url": "autofillpassword-1.0.0.jar",
-          "size": 3084,
-          "sha512": "0c6ffe2eac1961e072117680dd9c97febcfdfd231c2585ed0cb8a8061b20e31c4b26d74c43497feb2d965ba830c260e2dd11aad677d20587577efaca13b2787c",
-          "sha256": "882456399bc094864b5305f96eb0e825f8cf0e82a0db87a5e936d71b8d7640c9",
-          "sha1": "dad69e12ef6b41d314bb10bf955e49f39582f8e6",
-          "md5": "6cc13f0664b8f0abbbeecb73e8f87989"
+          "size": 3085,
+          "sha512": "cd2e0e2acd5c3a005907db34bb26eb9a92d2a06054ea1e369d2b90e0f4f7f8bd7f5b07045ca8345a1d2d7064c4571c19ec1846c5f00fad28dc01212acbae1f81",
+          "sha256": "159d2c663be6cf47ba8dcbe25b6b45795c1176b8e4f89620039928edb04ec8ad",
+          "sha1": "b480b9a0fd1c0dba834359031a91b37c0b435aac",
+          "md5": "81da8dc964b5ba58d576cdcad9e14903"
         }
       ]
     },
@@ -48,11 +48,11 @@
         {
           "name": "autofillpassword-1.0.0.jar",
           "url": "autofillpassword-1.0.0.jar",
-          "size": 3084,
-          "sha512": "0c6ffe2eac1961e072117680dd9c97febcfdfd231c2585ed0cb8a8061b20e31c4b26d74c43497feb2d965ba830c260e2dd11aad677d20587577efaca13b2787c",
-          "sha256": "882456399bc094864b5305f96eb0e825f8cf0e82a0db87a5e936d71b8d7640c9",
-          "sha1": "dad69e12ef6b41d314bb10bf955e49f39582f8e6",
-          "md5": "6cc13f0664b8f0abbbeecb73e8f87989"
+          "size": 3085,
+          "sha512": "cd2e0e2acd5c3a005907db34bb26eb9a92d2a06054ea1e369d2b90e0f4f7f8bd7f5b07045ca8345a1d2d7064c4571c19ec1846c5f00fad28dc01212acbae1f81",
+          "sha256": "159d2c663be6cf47ba8dcbe25b6b45795c1176b8e4f89620039928edb04ec8ad",
+          "sha1": "b480b9a0fd1c0dba834359031a91b37c0b435aac",
+          "md5": "81da8dc964b5ba58d576cdcad9e14903"
         }
       ]
     }
