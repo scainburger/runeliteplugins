@@ -1,0 +1,60 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "com.openosrs.externals",
+    "module": "autofillpassword",
+    "version": "1.0.0",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "7.0.2"
+    }
+  },
+  "variants": [
+    {
+      "name": "apiElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 11,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-api"
+      },
+      "files": [
+        {
+          "name": "autofillpassword-1.0.0.jar",
+          "url": "autofillpassword-1.0.0.jar",
+          "size": 3084,
+          "sha512": "0c6ffe2eac1961e072117680dd9c97febcfdfd231c2585ed0cb8a8061b20e31c4b26d74c43497feb2d965ba830c260e2dd11aad677d20587577efaca13b2787c",
+          "sha256": "882456399bc094864b5305f96eb0e825f8cf0e82a0db87a5e936d71b8d7640c9",
+          "sha1": "dad69e12ef6b41d314bb10bf955e49f39582f8e6",
+          "md5": "6cc13f0664b8f0abbbeecb73e8f87989"
+        }
+      ]
+    },
+    {
+      "name": "runtimeElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 11,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "files": [
+        {
+          "name": "autofillpassword-1.0.0.jar",
+          "url": "autofillpassword-1.0.0.jar",
+          "size": 3084,
+          "sha512": "0c6ffe2eac1961e072117680dd9c97febcfdfd231c2585ed0cb8a8061b20e31c4b26d74c43497feb2d965ba830c260e2dd11aad677d20587577efaca13b2787c",
+          "sha256": "882456399bc094864b5305f96eb0e825f8cf0e82a0db87a5e936d71b8d7640c9",
+          "sha1": "dad69e12ef6b41d314bb10bf955e49f39582f8e6",
+          "md5": "6cc13f0664b8f0abbbeecb73e8f87989"
+        }
+      ]
+    }
+  ]
+}

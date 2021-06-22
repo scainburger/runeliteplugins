@@ -1,0 +1,8 @@
+Manifest-Version: 1.0
+Plugin-Version: 1.0.0
+Plugin-Id: partyreadycheck-plugin
+Plugin-Provider: OpenOSRS
+Plugin-Description: Display an alert and a timer to check ready status o
+ f your party
+Plugin-License: 3-Clause BSD License
+
