@@ -27,11 +27,11 @@
         {
           "name": "partyreadycheck-1.0.0.jar",
           "url": "partyreadycheck-1.0.0.jar",
-          "size": 4079,
-          "sha512": "09af7367138eb6045ff77413c0a4430284ce265f9f4aca665eeba76c8fc9148b5bf6eb2fdcf832d8be7e49837a38877082fe70252723b4917ebd032875519654",
-          "sha256": "bcd4a71f7b14a3383a7582a839be226fdbfbb2f63edfbc931a08006ef2bec6df",
-          "sha1": "2daeb3d1ef05a79edc09a5bcec753352124a74ab",
-          "md5": "33a4a569bb18b4c6689505a107546106"
+          "size": 3652,
+          "sha512": "d5451d0d3e989fa2c3d16780c34cddd9d3faab729cbbf94ac6a8f41e834de0209d1bb85ffdf2b497c701e86b3daf5d5b237011b29521bdbd0fb8b4ee7d46c14c",
+          "sha256": "f296a54aa8d4742f11b7473f42c31aee2bfce0a133b0354081edff8e4667048c",
+          "sha1": "e6f9c2e8f2ac5405c800c2b6ca7f5b7ad019763c",
+          "md5": "4b132958e6e2de5ccd04842cf0da478b"
         }
       ]
     },
@@ -48,11 +48,11 @@
         {
           "name": "partyreadycheck-1.0.0.jar",
           "url": "partyreadycheck-1.0.0.jar",
-          "size": 4079,
-          "sha512": "09af7367138eb6045ff77413c0a4430284ce265f9f4aca665eeba76c8fc9148b5bf6eb2fdcf832d8be7e49837a38877082fe70252723b4917ebd032875519654",
-          "sha256": "bcd4a71f7b14a3383a7582a839be226fdbfbb2f63edfbc931a08006ef2bec6df",
-          "sha1": "2daeb3d1ef05a79edc09a5bcec753352124a74ab",
-          "md5": "33a4a569bb18b4c6689505a107546106"
+          "size": 3652,
+          "sha512": "d5451d0d3e989fa2c3d16780c34cddd9d3faab729cbbf94ac6a8f41e834de0209d1bb85ffdf2b497c701e86b3daf5d5b237011b29521bdbd0fb8b4ee7d46c14c",
+          "sha256": "f296a54aa8d4742f11b7473f42c31aee2bfce0a133b0354081edff8e4667048c",
+          "sha1": "e6f9c2e8f2ac5405c800c2b6ca7f5b7ad019763c",
+          "md5": "4b132958e6e2de5ccd04842cf0da478b"
         }
       ]
     }

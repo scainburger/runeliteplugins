@@ -51,29 +51,11 @@ public class PartyReadyCheckPlugin extends Plugin {
     @Inject
     private PartyReadyCheckConfig config;
 
-    @Subscribe
-    public void onGameTick(GameTick event)
-    {
-        for (int v = 330; v < 335; ++v) {
-            String name = Text.standardize(client.getVarcStrValue(v));
-            if (!Strings.isNullOrEmpty(name) && !playerList.contains(name)) {
-                playerList.add(name);
-                partySize = playerList.size();
-            }
-        }
-    }
-
-    @Override
-    protected void shutDown()
-    {
-        partySize = 0;
-        playerList.clear();
-    }
 
     @Subscribe
     public void onChatMessage(ChatMessage chatMessage)
     {
-        log.info("\"" + chatMessage.getMessage() + "\"");
+        //log.info("\"" + chatMessage.getMessage() + "\"");
         String msg = chatMessage.getMessage().toUpperCase(Locale.ROOT);
         if (msg.equals("R") || msg.equals("UN R"))
         {
@@ -90,7 +72,7 @@ public class PartyReadyCheckPlugin extends Plugin {
             for (int i = 0; i < playerNames.length; i++)
             {
                 String name = playerNames[i];
-                log.info("Checking if \"" + chatMessage.getName() + "\" equals \"" + name + "\"");
+                //log.info("Checking if \"" + chatMessage.getName() + "\" equals \"" + name + "\"");
                 if (name.equals(chatMessage.getName()) && msg.equals("R"))
                 { // Un-ready player is now ready
                     outputText = outputText + name + " (R)";
