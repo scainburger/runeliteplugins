@@ -23,10 +23,10 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-rootProject.name = "external plugins example"
+rootProject.name = "runeliteplugins"
 
-include(":kotlinexample")
-include(":javaexample")
+include(":autofillpassword")
+include(":partyreadycheck")
 
 for (project in rootProject.children) {
     project.apply {
