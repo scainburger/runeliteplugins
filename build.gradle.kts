@@ -14,6 +14,8 @@ apply<VersionPlugin>()
 
 allprojects {
     group = "com.scainburger"
+    project.extra["GithubUrl"] = "https://github.com/scainburger"
+    project.extra["ProjectSupportUrl"] = "https://github.com/scainburger"
     version = ProjectVersions.openosrsVersion
     apply<MavenPublishPlugin>()
 }
