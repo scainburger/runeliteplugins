@@ -51,6 +51,7 @@ public class PartyReadyCheckPlugin extends Plugin {
     @Inject
     private PartyReadyCheckConfig config;
 
+    private static final int PARTY_LIST_ID_TOB = 1835020;
 
     @Subscribe
     public void onChatMessage(ChatMessage chatMessage)
@@ -60,7 +61,7 @@ public class PartyReadyCheckPlugin extends Plugin {
         if (msg.equals("R") || msg.equals("UN R"))
         {
 
-            Widget raidingPartyWidget = client.getWidget(1835017); // Player list sub-widget on TOB party frame
+            Widget raidingPartyWidget = client.getWidget(PARTY_LIST_ID_TOB); // Player list sub-widget on TOB party frame
             if (raidingPartyWidget == null || raidingPartyWidget.isHidden())
             {
                 return;
