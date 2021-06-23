@@ -28,9 +28,12 @@ open class BootstrapTask : DefaultTask() {
     }
 
     private fun getBootstrap(filename: String): JSONArray? {
-        val bootstrapFile = File(filename).readLines()
-
-        return JSONObject("{\"plugins\":$bootstrapFile}").getJSONArray("plugins")
+        try {
+            val bootstrapFile = File(filename).readLines()
+            return JSONObject("{\"plugins\":$bootstrapFile}").getJSONArray("plugins")
+        } catch (e: Exception) {
+            return JSONArray("[]")
+        }
     }
 
     @TaskAction
@@ -42,7 +45,9 @@ open class BootstrapTask : DefaultTask() {
             bootstrapReleaseDir.mkdirs()
 
             val plugins = ArrayList<JSONObject>()
-            val baseBootstrap = getBootstrap("$bootstrapDir/plugins.json") ?: throw RuntimeException("Base bootstrap is null!")
+            val baseBootstrap =
+                getBootstrap("$bootstrapDir/plugins.json") ?:
+                throw RuntimeException("Base bootstrap is null!")
 
             project.subprojects.forEach {
                 if (it.project.properties.containsKey("PluginName") && it.project.properties.containsKey("PluginDescription")) {
@@ -68,7 +73,7 @@ open class BootstrapTask : DefaultTask() {
                             "releases" to releases.toTypedArray()
                     ).jsonObject()
 
-                    for (i in 0 until baseBootstrap.length()) {
+                    for (i in 1 until baseBootstrap.length()) {
                         val item = baseBootstrap.getJSONObject(i)
 
                         if (item.get("id") != nameToId(it.project.extra.get("PluginName") as String)) {
@@ -90,7 +95,12 @@ open class BootstrapTask : DefaultTask() {
                         plugins.add(pluginObject)
                     }
 
-                    plugin.copyTo(Paths.get(bootstrapReleaseDir.toString(), "${it.project.name}-${it.project.version}.jar").toFile())
+                    plugin.copyTo(
+                        Paths.get(
+                            bootstrapReleaseDir.toString(),
+                            "${it.project.name}-${it.project.version}.jar"
+                        ).toFile()
+                    , true)
                 }
             }
 
