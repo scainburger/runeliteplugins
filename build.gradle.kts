@@ -14,8 +14,8 @@ apply<VersionPlugin>()
 
 allprojects {
     group = "com.scainburger"
-    project.extra["GithubUrl"] = "https://github.com/scainburger"
-    project.extra["ProjectSupportUrl"] = "https://github.com/scainburger"
+    project.extra["GithubUrl"] = "https://github.com/scainburger/runeliteplugins"
+    project.extra["ProjectSupportUrl"] = "https://github.com/scainburger/runeliteplugins"
     version = ProjectVersions.openosrsVersion
     apply<MavenPublishPlugin>()
 }
@@ -24,7 +24,7 @@ subprojects {
     group = "com.scainburger.plugins"
 
     project.extra["PluginProvider"] = "scainburger"
-    project.extra["ProjectUrl"] = "https://github.com/scainburger"
+    project.extra["ProjectUrl"] = "https://github.com/scainburger/runeliteplugins"
     project.extra["PluginLicense"] = "3-Clause BSD License"
 
     repositories {
