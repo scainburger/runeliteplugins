@@ -110,11 +110,13 @@ public class PartyReadyCheckPlugin extends Plugin {
             String[] playerNames = raidingPartyWidget.getText().split("<br>");
             String outputText = "";
 
+            String senderName = chatMessage.getName().replace("\uFFFD", " ");
+
             for (int i = 0; i < playerNames.length; i++)
             {
                 String name = playerNames[i];
-                //log.info("Checking if \"" + chatMessage.getName() + "\" equals \"" + name + "\"");
-                if (name.equals(chatMessage.getName()) && msg.equals("R"))
+                log.info("Checking if \"" + senderName + "\" equals \"" + name + "\"");
+                if (name.equals(senderName) && msg.equals("R"))
                 { // Un-ready player is now ready
                     outputText = outputText + name + " (R)";
 
@@ -141,9 +143,9 @@ public class PartyReadyCheckPlugin extends Plugin {
                             }, 60000L);
                     timerRunning = true;
                 }
-                else if (name.equals(chatMessage.getName() + " (R)") && msg.equals("UN R"))
+                else if (name.equals(senderName + " (R)") && msg.equals("UN R"))
                 { // Ready player is now un-ready
-                    outputText = outputText + chatMessage.getName(); // restore to original
+                    outputText = outputText + senderName; // restore to original
                 }
                 else
                 { // No state change
