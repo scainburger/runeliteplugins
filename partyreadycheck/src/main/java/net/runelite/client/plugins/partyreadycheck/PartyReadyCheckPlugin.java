@@ -66,9 +66,6 @@ public class PartyReadyCheckPlugin extends Plugin {
 
     @Subscribe
     public void onGameTick(GameTick tick) {
-        if (rcTicksRemaining < 0) {
-            return;
-        }
         if (rcTicksRemaining == 0) {
             rcTicksRemaining = -1;
             soundToPlay = SoundEffectID.PRAYER_DEACTIVE_VWOOP;
