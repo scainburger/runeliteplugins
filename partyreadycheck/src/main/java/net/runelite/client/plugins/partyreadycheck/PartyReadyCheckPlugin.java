@@ -60,11 +60,25 @@ public class PartyReadyCheckPlugin extends Plugin {
     private static final int PARTY_LIST_ID_TOB = 1835020;
 
     private Timer timer;
+    private int rcTicksRemaining = -1;
 
     private int soundToPlay = 0;
 
     @Subscribe
     public void onGameTick(GameTick tick) {
+        if (rcTicksRemaining < 0) {
+            return;
+        }
+        if (rcTicksRemaining == 0) {
+            rcTicksRemaining = -1;
+            soundToPlay = SoundEffectID.PRAYER_DEACTIVE_VWOOP;
+            sendChatMessage("The ready check timed out.");
+            resetFrame();
+        }
+        if (rcTicksRemaining > 0 ) {
+            rcTicksRemaining--;
+        }
+
         if (soundToPlay > 0) {
             client.playSoundEffect(soundToPlay);
             soundToPlay = 0;
@@ -99,13 +113,9 @@ public class PartyReadyCheckPlugin extends Plugin {
         String msg = chatMessage.getMessage().toUpperCase(Locale.ROOT);
         if (msg.equals("R") || msg.equals("UN R"))
         {
-            log.info("Timer is running? " + timerRunning);
-
             raidingPartyWidget = client.getWidget(PARTY_LIST_ID_TOB);// Player list sub-widget on TOB party frame
             if (raidingPartyWidget == null || raidingPartyWidget.isHidden())
-            {
                 return;
-            }
 
             String[] playerNames = raidingPartyWidget.getText().split("<br>");
             String outputText = "";
@@ -120,29 +130,12 @@ public class PartyReadyCheckPlugin extends Plugin {
                 { // Un-ready player is now ready
                     outputText = outputText + name + " (R)";
 
-                    if (timerRunning) {
-                        timer.cancel();
-                        timer.purge();
-                        log.info("Stopping the timer...");
-                        timerRunning = false;
-                    }
-                    else {
-                        // Starting ready check...
-                        sendChatMessage(name + " has started a ready check");
+                    if (rcTicksRemaining == -1) {
+                        rcTicksRemaining = 100;
+                        sendChatMessage(name + " has started a ready check.");
                         soundToPlay = SoundEffectID.GE_ADD_OFFER_DINGALING;
                     }
 
-                    timer = new Timer("ReadyCheckTimer");
-                    timer.schedule(new TimerTask() {
-                                public void run() {
-                                    timerRunning = false;
-                                    soundToPlay = SoundEffectID.PRAYER_DEACTIVE_VWOOP;
-                                    log.info("The ready check timed out...");
-                                    sendChatMessage("The ready check timed out...");
-                                    resetFrame();
-                                }
-                            }, 60000L);
-                    timerRunning = true;
                 }
                 else if (name.equals(senderName + " (R)") && msg.equals("UN R"))
                 { // Ready player is now un-ready
@@ -176,12 +169,7 @@ public class PartyReadyCheckPlugin extends Plugin {
             sendChatMessage("All party members are ready!");
             soundToPlay = SoundEffectID.GE_COIN_TINKLE;
             resetFrame();
-            if (timerRunning) {
-                timer.cancel();
-                timer.purge();
-                log.info("Stopping the timer...");
-                timerRunning=false;
-            }
+            rcTicksRemaining = -1;
 
         }
     }
