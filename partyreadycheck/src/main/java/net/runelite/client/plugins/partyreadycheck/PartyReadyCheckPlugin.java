@@ -112,12 +112,10 @@ public class PartyReadyCheckPlugin extends Plugin {
 
             String senderName = chatMessage.getName().replace("\u00A0", " ");
 
-            System.out.println((int) chatMessage.getName().charAt(6));
-
             for (int i = 0; i < playerNames.length; i++)
             {
                 String name = playerNames[i];
-                log.info("Checking if \"" + senderName + "\" equals \"" + name + "\"");
+                //log.info("Checking if \"" + senderName + "\" equals \"" + name + "\"");
                 if (name.equals(senderName) && msg.equals("R"))
                 { // Un-ready player is now ready
                     outputText = outputText + name + " (R)";
@@ -130,6 +128,7 @@ public class PartyReadyCheckPlugin extends Plugin {
                     }
                     else {
                         // Starting ready check...
+                        sendChatMessage(name + " has started a ready check");
                         soundToPlay = SoundEffectID.GE_ADD_OFFER_DINGALING;
                     }
 
@@ -180,7 +179,8 @@ public class PartyReadyCheckPlugin extends Plugin {
             if (timerRunning) {
                 timer.cancel();
                 timer.purge();
-                //log.info("Stopping the timer...");
+                log.info("Stopping the timer...");
+                timerRunning=false;
             }
 
         }
@@ -193,10 +193,10 @@ public class PartyReadyCheckPlugin extends Plugin {
         for (int i = 0; i < playerNames.length; i++) {
             String name = playerNames[i];
             if (name.endsWith(" (R)")) {
-                log.info(name + " is ready so we are removing the (R)");
+                //log.info(name + " is ready so we are removing the (R)");
                 name = name.substring(0, name.length() - 4);
             }
-            log.info("The man to add is \"" + name + "\"");
+            //log.info("The man to add is \"" + name + "\"");
             outputText = outputText + name;
             if (i < 4) outputText += "<br>";
 
