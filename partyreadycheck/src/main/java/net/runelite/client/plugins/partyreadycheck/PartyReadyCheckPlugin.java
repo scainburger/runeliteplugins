@@ -57,6 +57,7 @@ public class PartyReadyCheckPlugin extends Plugin {
 
     private boolean timerRunning = false;
 
+    private static final int PARTY_LIST_ID_TOB_HEADER = 1835019;
     private static final int PARTY_LIST_ID_TOB = 1835020;
 
     private Timer timer;
@@ -106,7 +107,11 @@ public class PartyReadyCheckPlugin extends Plugin {
     @Subscribe
     public void onChatMessage(ChatMessage chatMessage)
     {
-        //log.info("\"" + chatMessage.getMessage() + "\"");
+        if   ( client.getWidget(PARTY_LIST_ID_TOB_HEADER) == null
+            || client.getWidget(PARTY_LIST_ID_TOB_HEADER).getText().equals("No party")
+            || client.getWidget(PARTY_LIST_ID_TOB_HEADER).isHidden()) {
+            return;
+        }
         String msg = chatMessage.getMessage().toUpperCase(Locale.ROOT);
         if (msg.equals("R") || msg.equals("UN R"))
         {
@@ -122,7 +127,6 @@ public class PartyReadyCheckPlugin extends Plugin {
             for (int i = 0; i < playerNames.length; i++)
             {
                 String name = playerNames[i];
-                //log.info("Checking if \"" + senderName + "\" equals \"" + name + "\"");
                 if (name.equals(senderName) && msg.equals("R"))
                 { // Un-ready player is now ready
                     outputText = outputText + name + " (R)";
@@ -156,13 +160,11 @@ public class PartyReadyCheckPlugin extends Plugin {
             {
                 String name = playerNames[i];
                 if (!name.equals("-") && !name.endsWith(" (R)")) {
-                    //log.info("Someone is not ready - \"" + name + "\"");
                     return;
                 }
             }
 
             // We are ready
-            //log.info("All party members are ready!");
             sendChatMessage("All party members are ready!");
             soundToPlay = SoundEffectID.GE_COIN_TINKLE;
             resetFrame();
@@ -178,10 +180,8 @@ public class PartyReadyCheckPlugin extends Plugin {
         for (int i = 0; i < playerNames.length; i++) {
             String name = playerNames[i];
             if (name.endsWith(" (R)")) {
-                //log.info(name + " is ready so we are removing the (R)");
                 name = name.substring(0, name.length() - 4);
             }
-            //log.info("The man to add is \"" + name + "\"");
             outputText = outputText + name;
             if (i < 4) outputText += "<br>";
 
