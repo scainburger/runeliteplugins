@@ -110,7 +110,9 @@ public class PartyReadyCheckPlugin extends Plugin {
             String[] playerNames = raidingPartyWidget.getText().split("<br>");
             String outputText = "";
 
-            String senderName = chatMessage.getName().replace("\uFFFD", " ");
+            String senderName = chatMessage.getName().replace("\u00A0", " ");
+
+            System.out.println((int) chatMessage.getName().charAt(6));
 
             for (int i = 0; i < playerNames.length; i++)
             {
