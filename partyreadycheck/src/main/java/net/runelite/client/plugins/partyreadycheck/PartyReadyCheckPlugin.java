@@ -170,7 +170,7 @@ public class PartyReadyCheckPlugin extends Plugin {
                     outputText = outputText + name + " (R)";
 
                     if (rcTicksRemaining == -1) {
-                        rcTicksRemaining = 17;
+                        rcTicksRemaining = 100;
                         sendChatMessage(name + " has started a ready check.");
                         playSound("start.wav", SoundEffectID.GE_ADD_OFFER_DINGALING);
                     }

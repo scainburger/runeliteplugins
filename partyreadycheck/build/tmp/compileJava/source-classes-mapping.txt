@@ -1,0 +1,4 @@
+net/runelite/client/plugins/partyreadycheck/PartyReadyCheckConfig.java
+ net.runelite.client.plugins.partyreadycheck.PartyReadyCheckConfig
+net/runelite/client/plugins/partyreadycheck/PartyReadyCheckPlugin.java
+ net.runelite.client.plugins.partyreadycheck.PartyReadyCheckPlugin
