@@ -7,12 +7,11 @@ import net.runelite.client.config.ConfigItem;
 @ConfigGroup("partyreadycheck")
 public interface PartyReadyCheckConfig extends Config
 {
-//    @ConfigItem(
-//            position = 1,
-//            keyName = "stringUsername",
-//            name = "Username",
-//            secret = true,
-//            description = "Enter your username here"
-//    )
-//    default String stringUsername() { return ""; }
+    @ConfigItem(
+            position = 1,
+            keyName = "alternateSounds",
+            name = "Use alternate sounds",
+            description = "Whether to use the alternate sounds over the default Runescape-sourced sounds"
+    )
+    default boolean alternateSounds() { return false; }
 }

@@ -1,20 +1,14 @@
 package net.runelite.client.plugins.partyreadycheck;
 
-import com.google.common.base.Strings;
 import com.google.inject.Provides;
+import com.openosrs.client.game.SoundManager;
 import lombok.extern.slf4j.Slf4j;
 import net.runelite.api.ChatMessageType;
 import net.runelite.api.Client;
-import net.runelite.api.GameState;
 import net.runelite.api.SoundEffectID;
 import net.runelite.api.events.ChatMessage;
-import net.runelite.api.events.GameStateChanged;
 import net.runelite.api.events.GameTick;
-import net.runelite.api.util.Text;
 import net.runelite.api.widgets.Widget;
-import net.runelite.api.widgets.WidgetID;
-import net.runelite.api.widgets.WidgetInfo;
-import net.runelite.api.widgets.WidgetItem;
 import net.runelite.client.chat.ChatColorType;
 import net.runelite.client.chat.ChatMessageBuilder;
 import net.runelite.client.chat.ChatMessageManager;
@@ -23,14 +17,15 @@ import net.runelite.client.config.ConfigManager;
 import net.runelite.client.eventbus.Subscribe;
 import net.runelite.client.plugins.Plugin;
 import net.runelite.client.plugins.PluginDescriptor;
-import net.runelite.client.plugins.devtools.WidgetField;
-import net.runelite.client.ws.PartyMember;
 import net.runelite.client.ws.PartyService;
 import org.pf4j.Extension;
 
 import javax.inject.Inject;
+import javax.sound.sampled.*;
+import java.io.BufferedInputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.*;
-import java.util.concurrent.TimeoutException;
 
 @Extension
 @PluginDescriptor(
@@ -63,23 +58,18 @@ public class PartyReadyCheckPlugin extends Plugin {
     private Timer timer;
     private int rcTicksRemaining = -1;
 
-    private int soundToPlay = 0;
+    private Clip readyCheckStartSound = null;
 
     @Subscribe
     public void onGameTick(GameTick tick) {
         if (rcTicksRemaining == 0) {
             rcTicksRemaining = -1;
-            soundToPlay = SoundEffectID.PRAYER_DEACTIVE_VWOOP;
+            playSound("fail.wav", SoundEffectID.PRAYER_DEACTIVE_VWOOP);
             sendChatMessage("The ready check timed out.");
             resetFrame();
         }
         if (rcTicksRemaining > 0 ) {
             rcTicksRemaining--;
-        }
-
-        if (soundToPlay > 0) {
-            client.playSoundEffect(soundToPlay);
-            soundToPlay = 0;
         }
     }
 
@@ -104,6 +94,62 @@ public class PartyReadyCheckPlugin extends Plugin {
     // End stolen code :)
     //
 
+    @Override
+    protected void startUp() throws Exception {
+
+        InputStream fileStream = new BufferedInputStream(PartyReadyCheckPlugin.class.getResourceAsStream("start.wav"));
+        try {
+            readyCheckStartSound = AudioSystem.getClip();
+            AudioInputStream sound = AudioSystem.getAudioInputStream(fileStream);
+            readyCheckStartSound.open(sound);
+        } catch (UnsupportedAudioFileException | IOException | LineUnavailableException e) {
+            log.warn("Unable to load builtin start sound", e);
+        }
+    }
+
+    @Override
+    protected void shutDown() throws Exception {
+        super.shutDown();
+    }
+
+    private AudioFormat getOutFormat(AudioFormat inFormat)
+    {
+        int ch = inFormat.getChannels();
+        float rate = inFormat.getSampleRate();
+        return new AudioFormat(AudioFormat.Encoding.PCM_SIGNED, rate, 16, ch, ch * 2, rate, false);
+    }
+
+    public void playSound(String customSound, int fallbackSound)
+    {
+
+        if (config.alternateSounds()) {
+            try {
+                Clip clip = AudioSystem.getClip();
+                AudioInputStream inputStream = AudioSystem.getAudioInputStream(
+                        PartyReadyCheckPlugin.class.getResourceAsStream(customSound)
+                );
+                AudioFormat outFormat = PartyReadyCheckPlugin.this.getOutFormat(clip.getFormat());
+                DataLine.Info info = new DataLine.Info(SourceDataLine.class, outFormat);
+                if (clip != null) {
+                    clip.open(inputStream);
+                    if (clip.isControlSupported(FloatControl.Type.MASTER_GAIN)) {
+                        BooleanControl muteControl = (BooleanControl) clip.getControl(BooleanControl.Type.MUTE);
+                        muteControl.setValue(false);
+                        FloatControl gainControl = (FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
+                        int soundVol = (int) Math.round( client.getPreferences().getSoundEffectVolume() / 1.27);
+                        float newVol = (float) (Math.log((double) soundVol/100) / Math.log(10.0) * 20.0);
+                        gainControl.setValue(newVol);
+                    }
+                }
+                clip.start();
+                return;
+            } catch (Exception e) {
+                log.warn("Could not play custom sound file: " + e.getMessage());
+            }
+        }
+        client.playSoundEffect(fallbackSound);
+    }
+
     @Subscribe
     public void onChatMessage(ChatMessage chatMessage)
     {
@@ -112,7 +158,7 @@ public class PartyReadyCheckPlugin extends Plugin {
             || client.getWidget(PARTY_LIST_ID_TOB_HEADER).isHidden()) {
             return;
         }
-        String msg = chatMessage.getMessage().toUpperCase(Locale.ROOT);
+        String msg = chatMessage.getMessage().toUpperCase(Locale.ROOT).trim();
         if (msg.equals("R") || msg.equals("UN R"))
         {
             raidingPartyWidget = client.getWidget(PARTY_LIST_ID_TOB);// Player list sub-widget on TOB party frame
@@ -132,9 +178,9 @@ public class PartyReadyCheckPlugin extends Plugin {
                     outputText = outputText + name + " (R)";
 
                     if (rcTicksRemaining == -1) {
-                        rcTicksRemaining = 100;
+                        rcTicksRemaining = 17;
                         sendChatMessage(name + " has started a ready check.");
-                        soundToPlay = SoundEffectID.GE_ADD_OFFER_DINGALING;
+                        playSound("start.wav", SoundEffectID.GE_ADD_OFFER_DINGALING);
                     }
 
                 }
@@ -160,13 +206,14 @@ public class PartyReadyCheckPlugin extends Plugin {
             {
                 String name = playerNames[i];
                 if (!name.equals("-") && !name.endsWith(" (R)")) {
+                    // If anyone not ready, stop
                     return;
                 }
             }
 
-            // We are ready
+            // If we get here all players are ready
             sendChatMessage("All party members are ready!");
-            soundToPlay = SoundEffectID.GE_COIN_TINKLE;
+            playSound("success.wav", SoundEffectID.GE_COIN_TINKLE);
             resetFrame();
             rcTicksRemaining = -1;
 
