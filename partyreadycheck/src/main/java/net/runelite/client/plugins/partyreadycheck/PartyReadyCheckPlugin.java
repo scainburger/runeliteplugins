@@ -96,15 +96,6 @@ public class PartyReadyCheckPlugin extends Plugin {
 
     @Override
     protected void startUp() throws Exception {
-
-        InputStream fileStream = new BufferedInputStream(PartyReadyCheckPlugin.class.getResourceAsStream("start.wav"));
-        try {
-            readyCheckStartSound = AudioSystem.getClip();
-            AudioInputStream sound = AudioSystem.getAudioInputStream(fileStream);
-            readyCheckStartSound.open(sound);
-        } catch (UnsupportedAudioFileException | IOException | LineUnavailableException e) {
-            log.warn("Unable to load builtin start sound", e);
-        }
     }
 
     @Override
@@ -125,9 +116,10 @@ public class PartyReadyCheckPlugin extends Plugin {
         if (config.alternateSounds()) {
             try {
                 Clip clip = AudioSystem.getClip();
-                AudioInputStream inputStream = AudioSystem.getAudioInputStream(
+                InputStream fileStream = new BufferedInputStream(
                         PartyReadyCheckPlugin.class.getResourceAsStream(customSound)
                 );
+                AudioInputStream inputStream = AudioSystem.getAudioInputStream(fileStream);
                 AudioFormat outFormat = PartyReadyCheckPlugin.this.getOutFormat(clip.getFormat());
                 DataLine.Info info = new DataLine.Info(SourceDataLine.class, outFormat);
                 if (clip != null) {

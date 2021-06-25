@@ -1,5 +1,5 @@
 Manifest-Version: 1.0
-Plugin-Version: 1.2.0
+Plugin-Version: 1.2.1
 Plugin-Id: partyreadycheck-plugin
 Plugin-Provider: scainburger
 Plugin-Description: Display an alert and a timer to check ready status o
