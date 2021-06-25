@@ -3,7 +3,7 @@
   "component": {
     "group": "com.scainburger.plugins",
     "module": "partyreadycheck",
-    "version": "1.2.2",
+    "version": "1.2.3",
     "attributes": {
       "org.gradle.status": "release"
     }
@@ -25,13 +25,13 @@
       },
       "files": [
         {
-          "name": "partyreadycheck-1.2.2.jar",
-          "url": "partyreadycheck-1.2.2.jar",
-          "size": 916661,
-          "sha512": "4e0bb652e2fd8566957bb3b8c3eb45777a58fc0769a38a236f2b9a8c4567ea6781dcda22151c0666cf72875b542f7876fdc6bbdd3c61d571f5783a2cd89162f2",
-          "sha256": "040ea6c6e18ce315cfd69fee46e3923121df9627b97a099f36e746ce99398e81",
-          "sha1": "87697b6d628d970855868554c844fd12eee8d7a9",
-          "md5": "4d6484fc7f73cf21cac18287ddcbdc56"
+          "name": "partyreadycheck-1.2.3.jar",
+          "url": "partyreadycheck-1.2.3.jar",
+          "size": 918298,
+          "sha512": "435fe825778184346de5705497fc4b75da254a1f6b0525942bb38edb04863b186bd303aa8f968e4256ebf49234b2b92ca52c9cd3116abaeb84aa2a817ad5b271",
+          "sha256": "1cadb7a87e0bcd5b3b97925ba7ba9077dc6c07321852bd2fa37196880eb5090e",
+          "sha1": "7233d68db0c93b93c942c1aaef8956efaddc532a",
+          "md5": "d98a95b350c18221124a61e8d245f7e0"
         }
       ]
     },
@@ -46,13 +46,13 @@
       },
       "files": [
         {
-          "name": "partyreadycheck-1.2.2.jar",
-          "url": "partyreadycheck-1.2.2.jar",
-          "size": 916661,
-          "sha512": "4e0bb652e2fd8566957bb3b8c3eb45777a58fc0769a38a236f2b9a8c4567ea6781dcda22151c0666cf72875b542f7876fdc6bbdd3c61d571f5783a2cd89162f2",
-          "sha256": "040ea6c6e18ce315cfd69fee46e3923121df9627b97a099f36e746ce99398e81",
-          "sha1": "87697b6d628d970855868554c844fd12eee8d7a9",
-          "md5": "4d6484fc7f73cf21cac18287ddcbdc56"
+          "name": "partyreadycheck-1.2.3.jar",
+          "url": "partyreadycheck-1.2.3.jar",
+          "size": 918298,
+          "sha512": "435fe825778184346de5705497fc4b75da254a1f6b0525942bb38edb04863b186bd303aa8f968e4256ebf49234b2b92ca52c9cd3116abaeb84aa2a817ad5b271",
+          "sha256": "1cadb7a87e0bcd5b3b97925ba7ba9077dc6c07321852bd2fa37196880eb5090e",
+          "sha1": "7233d68db0c93b93c942c1aaef8956efaddc532a",
+          "md5": "d98a95b350c18221124a61e8d245f7e0"
         }
       ]
     }
