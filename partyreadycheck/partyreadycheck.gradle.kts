@@ -25,10 +25,10 @@ import ProjectVersions.openosrsVersion
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-version = "1.2.3"
+version = "1.3.0"
 
 project.extra["PluginName"] = "Party Ready Check" // This is the name that is used in the external plugin manager panel
-project.extra["PluginDescription"] = "Display an alert and a timer to check ready status of your party" // This is the description that is used in the external plugin manager panel
+project.extra["PluginDescription"] = "Display an alert to check ready status of your party" // This is the description that is used in the external plugin manager panel
 
 tasks {
     jar {
