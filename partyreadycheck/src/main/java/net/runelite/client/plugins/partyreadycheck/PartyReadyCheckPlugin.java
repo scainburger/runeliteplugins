@@ -18,7 +18,6 @@ import net.runelite.client.eventbus.Subscribe;
 import net.runelite.client.events.ConfigChanged;
 import net.runelite.client.plugins.Plugin;
 import net.runelite.client.plugins.PluginDescriptor;
-import org.pf4j.Extension;
 
 import javax.inject.Inject;
 import javax.sound.sampled.*;
@@ -27,13 +26,11 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.*;
 
-@Extension
+@org.pf4j.Extension
 @PluginDescriptor(
         name = "Party Ready Check",
         description = "Display an alert to check ready status of your party",
-        tags = {"menu"},
-        loadWhenOutdated = true,
-        enabledByDefault = true
+        tags = {"tob","party","ready","check"}
 )
 
 @Slf4j
