@@ -3,7 +3,7 @@
   "component": {
     "group": "com.scainburger.plugins",
     "module": "autofillpassword",
-    "version": "1.1",
+    "version": "1.1.0",
     "attributes": {
       "org.gradle.status": "release"
     }
@@ -25,13 +25,13 @@
       },
       "files": [
         {
-          "name": "autofillpassword-1.1.jar",
-          "url": "autofillpassword-1.1.jar",
+          "name": "autofillpassword-1.1.0.jar",
+          "url": "autofillpassword-1.1.0.jar",
           "size": 4260,
-          "sha512": "cc659bd00dd8ddd715a702609b76a7b4d6a3f185db57a0d1675a062ab23f4a4fc6e37b222a3bed238cbf8253d7c65464e811286c2a41786011edc6216a6371ce",
-          "sha256": "b8c3c155a68cdeec5f77f8a1a7b99d9fe19958227b44239a37f9afc80a37cec4",
-          "sha1": "4e34b9daec316bb14827996152c7814356cd1b63",
-          "md5": "38932004e356ab91ab8c12cbc13173a9"
+          "sha512": "8bca631f647565498217e953c116f9b470045efa4c64dc1be94c9f7d8692c378e54427007857bcb6893e1ac71f86fbc55f7058bda1c7dedbfc68b0291df37689",
+          "sha256": "1f99c43b6c037ab8718118c8d048f6ddc90ba50b11d8061dd476561324d3efcb",
+          "sha1": "6ad67d08d42d2f185da1f3ddc7b959aebabca745",
+          "md5": "b4042537aedb2c3bb377b264ffc66a74"
         }
       ]
     },
@@ -46,13 +46,13 @@
       },
       "files": [
         {
-          "name": "autofillpassword-1.1.jar",
-          "url": "autofillpassword-1.1.jar",
+          "name": "autofillpassword-1.1.0.jar",
+          "url": "autofillpassword-1.1.0.jar",
           "size": 4260,
-          "sha512": "cc659bd00dd8ddd715a702609b76a7b4d6a3f185db57a0d1675a062ab23f4a4fc6e37b222a3bed238cbf8253d7c65464e811286c2a41786011edc6216a6371ce",
-          "sha256": "b8c3c155a68cdeec5f77f8a1a7b99d9fe19958227b44239a37f9afc80a37cec4",
-          "sha1": "4e34b9daec316bb14827996152c7814356cd1b63",
-          "md5": "38932004e356ab91ab8c12cbc13173a9"
+          "sha512": "8bca631f647565498217e953c116f9b470045efa4c64dc1be94c9f7d8692c378e54427007857bcb6893e1ac71f86fbc55f7058bda1c7dedbfc68b0291df37689",
+          "sha256": "1f99c43b6c037ab8718118c8d048f6ddc90ba50b11d8061dd476561324d3efcb",
+          "sha1": "6ad67d08d42d2f185da1f3ddc7b959aebabca745",
+          "md5": "b4042537aedb2c3bb377b264ffc66a74"
         }
       ]
     }
