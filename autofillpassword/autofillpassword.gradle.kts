@@ -25,7 +25,7 @@ import ProjectVersions.openosrsVersion
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-version = "1.0.1"
+version = "1.1"
 
 project.extra["PluginName"] = "Autofill Password" // This is the name that is used in the external plugin manager panel
 project.extra["PluginDescription"] = "Saves your username and password on the login screen" // This is the description that is used in the external plugin manager panel

@@ -1,5 +1,5 @@
 Manifest-Version: 1.0
-Plugin-Version: 1.0.1
+Plugin-Version: 1.1
 Plugin-Id: autofillpassword-plugin
 Plugin-Provider: scainburger
 Plugin-Description: Saves your username and password on the login screen
